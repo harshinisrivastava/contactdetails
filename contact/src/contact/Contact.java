@@ -13,7 +13,7 @@ public class Contact {
 		}
 
 		public Contact(String firstName, String lastName, String mobileNumber, String homeNumber, String emailId,
-				boolean favourite) {
+				boolean favourite)throws CustomerException {
 			this.firstName = firstName;
 			this.lastName = lastName;
 			this.mobileNumber = mobileNumber;

@@ -1,7 +1,7 @@
 package contact;
 import java.util.*;
 public class PhoneList {
-		public static void main(String[] args) {
+		public static void main(String[] args) throws Exception {
 			ServiceFile service = new ServiceFile();
 			Scanner value = new Scanner(System.in);
 			 do {

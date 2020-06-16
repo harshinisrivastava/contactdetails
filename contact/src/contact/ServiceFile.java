@@ -9,7 +9,7 @@ public class ServiceFile {
 		Contact enter = new Contact();
 		Data valid = new Data();
 
-		ServiceFile() {
+		ServiceFile() throws CustomerException {
 			ServiceFile.list = new ArrayList<Contact>();
 			Contact no1 = new Contact("veena", "reddy", "8787812345", "918888888", "veenareddy@gmail.com", true);
 			Contact no2 = new Contact("sara", "sharma", "9777923456", "7354444444", "sarasharma@yahoo.com", false);
@@ -25,7 +25,7 @@ public class ServiceFile {
 			}
 		}
 
-		void addContact() {
+		void addContact() throws CustomerException {
 			boolean val = true;
 			while(val) {
 			System.out.println("Enter First Name");
@@ -97,24 +97,19 @@ public class ServiceFile {
 		}
 
 		void deleteContact() {
-			try {
-				System.out.println("Enter the Delete Number");
-				String num = value.next();
-				boolean status = false;
-				  for(Iterator<Contact> itr = list.iterator();itr.hasNext();) { 
-					  Contact key =itr.next(); 
-					  if(key.getMobileNumber().equals(num)) { 
-						  itr.remove(); 
-						  status =true; 
-						  } 
-					  }
-				  if (status == false) {
-					System.out.println("Invalid No");
-				}
-			} catch (Exception e) {
-				System.out.println(e);
+			System.out.println("Enter the Delete Number");
+			String num = value.next();
+			boolean status = false;
+			  for(Iterator<Contact> itr = list.iterator();itr.hasNext();) { 
+				  Contact key =itr.next(); 
+				  if(key.getMobileNumber().equals(num)) { 
+					  itr.remove(); 
+					  status =true; 
+					  } 
+				  }
+			  if (status == false) {
+				System.out.println("Invalid No");
 			}
-			//display();
 		}
 
 		void replace() {
@@ -144,7 +139,7 @@ public class ServiceFile {
 				boolean status = false;
 				for (Contact key : list) {
 					if (key.getMobileNumber().equals(number)) {
-						status = true;
+							status = true;
 						return key.toString();
 					}
 				}
